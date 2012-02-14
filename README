@@ -1,15 +1,7 @@
-Installed plugins
-#################################
+Personal Development Projects:
 
-NerdTree => hit Cntrl-N
-
-Fugitive => :G(whatever)
-	:Gwrite = git add current file
-	:Gcommit = commit the current change
-	:Git push origin = push the change
-
-TODO
-#################################
-# figure out vim wiki OR viki/vikitasks
-# get a better nagios plugin
-
+Install Icinga
+Install and set up Puppet
+Install and set up Chef
+Install and set up Graphite
+Figure out statsd
