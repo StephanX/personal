@@ -1,0 +1,21 @@
+Logstash/Graylog notes.
+
+apt-get install openjdk-6-jre-headless
+
+wget http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.2.deb
+
+wget https://logstash.objects.dreamhost.com/release/logstash-1.1.7-monolithic.jar
+
+root@logger.140proof.com:~/code/logstash# tar xzf redis-2.6.7.tar.gz
+root@logger.140proof.com:~/code/logstash# cd redis-2.6.7/
+root@logger.140proof.com:~/code/logstash/redis-2.6.7# make
+
+root@logger.140proof.com:~/code/logstash/redis-2.6.7# cat /etc/init/redis-server.conf
+description "redis server"
+
+start on runlevel [23]
+stop on shutdown
+
+exec sudo -u redis /usr/local/bin/redis-server /etc/redis/redis.conf
+
+respawn
