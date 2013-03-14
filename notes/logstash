@@ -19,3 +19,27 @@ stop on shutdown
 exec sudo -u redis /usr/local/bin/redis-server /etc/redis/redis.conf
 
 respawn
+
+-------
+
+Build logstash from source
+using notes from https://github.com/logstash/logstash/wiki/Building-and-running-logstash-from-source
+
+# git clone https://github.com/logstash/logstash.git
+# cd logstash/
+# git reset --hard 392401e506736b5d0a4943f33407f2019be4a376
+
+add .htaccess -> logstash/lib/logstash/web/public/ws
+
+
+
+# rvm get stable
+# rvm install jruby-1.7.1
+# rvm use jruby-1.7.1@logstash --create
+# GEM_HOME=./vendor/bundle/jruby/1.9/ GEM_PATH= ruby gembag.rb
+
+# logstash.conf #
+
+input { stdin { type => 'test' } }
+output { stdout { debug => 'true' } elasticsearch { cluster => 'logstash' host => '127.0.0.1' port => 9300 } }
+

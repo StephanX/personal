@@ -12,3 +12,8 @@ do
     exit 0
   fi
 done
+
+
+
+# for i loop with two files, line by line
+loop=`cat file1 |wc -l` ; echo $loop ; for i in `seq 1 $loop` ; do echo `awk "NR==$i" file1` and `awk "NR==$i" file2` ; done
