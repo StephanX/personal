@@ -1,0 +1,19 @@
+OpenBSD using tar and nc
+
+OpenBSD usually offers a much tighter system rather than the mess you have with Linux. OpenBSD has its own verison of netcat just refered as nc. The tar command is less sloppy than what you find in Linux. So if you're using two OpenBSD machines then one would do the following.
+
+On the receiving end do:
+# nc -l 7000 | tar -xpf -
+
+And on the sending end do:
+# tar -cf - * | nc otherhost 7000
+
+It appears that the OpenBSD rewrite of netcat is now in Debian Sid. The package is netcat-openbsd.
+
+Moving LVM images between machines without ssh
+
+On the receiving end do:
+# nc -l 7000 | dd of=/dev/mapper/vgfoo-lvbar bs=32768
+
+And on the sending end do:
+# dd if=/dev/mapper/vgbaz-lvquz bs=32768 | nc otherhost 7000
